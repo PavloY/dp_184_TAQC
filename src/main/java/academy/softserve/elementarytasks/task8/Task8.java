@@ -16,7 +16,7 @@ public class Task8 {
     setType();
     setLength();
     range(arr, setRange(), setRangeUpper());
-
+    //lenth(arr, lenth());
 
   }
 
