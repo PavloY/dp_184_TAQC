@@ -11,6 +11,17 @@ public class Task8 {
     setType();
     setLength();
     setRange();
+
+    int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765,
+            10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309,
+            3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141,
+            267914296, 433494437, 701408733};
+
+    int lower=140;
+    int upper=620;
+    range(arr, lower, upper);
+
+
   }
 
 
@@ -26,8 +37,6 @@ public class Task8 {
       } catch (NumberFormatException ex) {
         System.out.println("Incorrect range!");
       }
-
-
 
       System.out.println("set upper range:");
       String upperStr = sc.nextLine();
@@ -62,7 +71,7 @@ public class Task8 {
     int setType;
     Scanner sc = new Scanner(System.in);
     System.out.println("This program will show masive of fibonach\n" +
-            "please show the type \n(1) - range\n(2) - length");
+            "please show the type \n(1) - range (2) - length");
 
     String setString = sc.nextLine();
     try {
@@ -76,6 +85,16 @@ public class Task8 {
       System.out.println("Error set value, please enter 1 or 2");
     }
   }
+
+
+  private static void range(int[] arr, int lower, int upper) {
+    for(int element : arr)
+      if (lower <= element & element <= upper) System.out.print(element + ", ");
+  }
+
+
+
+
 
 }
 
