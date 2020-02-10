@@ -1,26 +1,9 @@
 package academy.softserve.elementarytasks.task8;
+
 import java.util.Scanner;
 
-//Ряд Фибоначчи
-//Вывести все числа Фибоначчи, которые удовлетворяют переданному в функцию ограничению:
-//находятся в указанном диапазоне, либо имеют указанную длину.
-public class Task8 {
-
-  public static void main(String[] args) {
-    int[] arr = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765,
-            10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309,
-            3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141,
-            267914296, 433494437, 701408733};
-
-
-    setType();
-    range(arr, setRange(), setRangeUpper());
-    checkLeanth(arr, setLength());
-
-  }
-
-
-  private static int setRange() {
+public class UI {
+  protected static int setRange() {
     int lower = 0;
 
     Scanner sc = new Scanner(System.in);
@@ -34,7 +17,8 @@ public class Task8 {
     }
     return lower;
   }
-    private static int setRangeUpper() {
+
+  protected static int setRangeUpper() {
     int upper = 0;
     Scanner sc = new Scanner(System.in);
       System.out.println("set upper range:");
@@ -47,7 +31,7 @@ public class Task8 {
       return upper;
   }
 
-  private static int setLength() {
+  protected static int setLength() {
     int length = 0;
     Scanner sc = new Scanner(System.in);
     System.out.println("");
@@ -64,7 +48,7 @@ public class Task8 {
     return length;
   }
 
-  private static void setType() {
+  protected static void setType() {
     int setType;
     Scanner sc = new Scanner(System.in);
     System.out.println("This program will show masive of fibonach\n" +
@@ -83,12 +67,12 @@ public class Task8 {
     }
   }
 
-
-  private static void range(int[] arr, int lower, int upper) {
+  protected static void range(int[] arr, int lower, int upper) {
     for(int element : arr)
       if (lower <= element & element <= upper) System.out.print(element + ", ");
   }
-  private static void checkLeanth(int[] arr, int lenth) {
+
+  protected static void checkLeanth(int[] arr, int lenth) {
     if (lenth == 1) {
       int x = 0;
       int k = 7;
@@ -142,5 +126,3 @@ public class Task8 {
       System.out.print(arr[x] + ", ");
   }
 }
-
-
