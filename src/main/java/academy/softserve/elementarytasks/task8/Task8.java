@@ -14,9 +14,8 @@ public class Task8 {
 
 
     setType();
-    setLength();
     range(arr, setRange(), setRangeUpper());
-    //lenth(arr, lenth());
+    checkLeanth(arr, setLength());
 
   }
 
@@ -45,14 +44,13 @@ public class Task8 {
       } catch (NumberFormatException ex) {
         System.out.println("Incorrect range!");
       }
-
-    System.out.println("have a range");
       return upper;
   }
 
-  private static void setLength() {
-    int length = -1;
+  private static int setLength() {
+    int length = 0;
     Scanner sc = new Scanner(System.in);
+    System.out.println("");
     System.out.println("Enter numbers length:");
     String setString = sc.nextLine();
     try {
@@ -63,8 +61,7 @@ public class Task8 {
     if (length > 9) {
       System.out.println("Incorrect length!");
     }
-      System.out.println("have a length");
-
+    return length;
   }
 
   private static void setType() {
@@ -91,11 +88,59 @@ public class Task8 {
     for(int element : arr)
       if (lower <= element & element <= upper) System.out.print(element + ", ");
   }
+  private static void checkLeanth(int[] arr, int lenth) {
+    if (lenth == 1) {
+      int x = 0;
+      int k = 7;
+      test(arr, x, k);
+    }
 
+    if (lenth == 2) {
+      int x = 7;
+      int k = 12;
+      test(arr, x, k);
+    }
+    if (lenth == 3) {
+      int x = 12;
+      int k = 17;
+      test(arr, x, k);
+    }
+    if (lenth == 4) {
+      int x = 17;
+      int k = 21;
+      test(arr, x, k);
+    }
+    if (lenth == 5) {
+      int x = 21;
+      int k = 26;
+      test(arr, x, k);
+    }
+    if (lenth == 6) {
+      int x = 26;
+      int k = 31;
+      test(arr, x, k);
+    }
+    if (lenth == 7) {
+      int x = 31;
+      int k = 36;
+      test(arr, x, k);
+    }
+    if (lenth == 8) {
+      int x = 36;
+      int k = 40;
+      test(arr, x, k);
+    }
+    if (lenth == 9) {
+      int x = 40;
+      int k = 45;
+      test(arr, x, k);
+    }
+  }
 
-
-
-
+  private static void test(int[] arr, int x, int k) {
+    for (int i=0; x < k; x++)
+      System.out.print(arr[x] + ", ");
+  }
 }
 
 
