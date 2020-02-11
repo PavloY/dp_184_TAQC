@@ -2,8 +2,10 @@ package academy.softserve.elementarytasks.task8;
 
 import java.util.Scanner;
 
-public class UI {
-  protected static int setRange() {
+public class Validator {
+
+
+  protected static int setLowerRange() {
     int lower = 0;
 
     Scanner sc = new Scanner(System.in);
@@ -18,7 +20,7 @@ public class UI {
     return lower;
   }
 
-  protected static int setRangeUpper() {
+  protected static int setUpperRange() {
     int upper = 0;
     Scanner sc = new Scanner(System.in);
       System.out.println("set upper range:");
@@ -67,61 +69,61 @@ public class UI {
     }
   }
 
-  protected static void range(int[] arr, int lower, int upper) {
+  protected static void showRange(int[] arr, int lower, int upper) {
     for(int element : arr)
       if (lower <= element & element <= upper) System.out.print(element + ", ");
   }
 
-  protected static void checkLeanth(int[] arr, int lenth) {
+  protected static void checkLength(int[] arr, int lenth) {
     if (lenth == 1) {
       int x = 0;
       int k = 7;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
 
     if (lenth == 2) {
       int x = 7;
       int k = 12;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 3) {
       int x = 12;
       int k = 17;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 4) {
       int x = 17;
       int k = 21;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 5) {
       int x = 21;
       int k = 26;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 6) {
       int x = 26;
       int k = 31;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 7) {
       int x = 31;
       int k = 36;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 8) {
       int x = 36;
       int k = 40;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
     if (lenth == 9) {
       int x = 40;
       int k = 45;
-      test(arr, x, k);
+      showLength(arr, x, k);
     }
   }
 
-  private static void test(int[] arr, int x, int k) {
+  private static void showLength(int[] arr, int x, int k) {
     for (int i=0; x < k; x++)
       System.out.print(arr[x] + ", ");
   }
