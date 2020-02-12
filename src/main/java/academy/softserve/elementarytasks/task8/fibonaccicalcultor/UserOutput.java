@@ -1,17 +1,13 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
 public class UserOutput {
+  FibonacciSupplier fibonacciSupplier = new FibonacciSupplier();
 
-  public void showRange(int[] arr, int lower, int upper) {
-    for (int element : arr)
-      if (lower <= element & element <= upper)
-        System.out.print(element + ", ");
-        System.out.print("\n");
+  public void showFibonacci(int lower, int upper) {
+    System.out.println(fibonacciSupplier.seriesRangeFibonacci(lower, upper));
   }
-
-  public void showLength(int[] arr, int[] list) {
-    for (int i = 0; list[0] < list[1]; list[0]++)
-      System.out.print(arr[list[0]] + ", ");
+  public void showFibonacci(String length) {
+    System.out.println(FibonacciSupplier.seriesLengthFibonacci(Integer.parseInt(length)));
   }
 
 }
