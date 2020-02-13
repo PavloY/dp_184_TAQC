@@ -1,19 +1,20 @@
 package academy.softserve.elementarytasks.task9;
 
-
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import academy.softserve.elementarytasks.task9.palindrome.UserInput;
 
 //Проверить является ли число или его часть палиндромом. Например, число 1234437
 //не является палиндромом, но является палиндромом его часть 3443. Числа меньшие, чем
 //10 палиндромом не считать.
 //Входные параметры: число
 //Выход: извлечённый из числа палиндром либо 0, если извлечение не удалось.
-public class Task9 {
+
+public class Main {
+  public static void main(String[] args) {
+
+    UserInput input = new UserInput();
+
+    input.enterText("enter int:");
 
 
-
-
+  }
 }
-
-
