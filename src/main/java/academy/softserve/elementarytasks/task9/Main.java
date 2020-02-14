@@ -1,5 +1,6 @@
 package academy.softserve.elementarytasks.task9;
 
+import academy.softserve.elementarytasks.task9.palindrome.PalindromeValidator;
 import academy.softserve.elementarytasks.task9.palindrome.UserInput;
 
 //Проверить является ли число или его часть палиндромом. Например, число 1234437
@@ -12,9 +13,10 @@ public class Main {
   public static void main(String[] args) {
 
     UserInput input = new UserInput();
+    PalindromeValidator palindromeValidator = new PalindromeValidator();
 
     input.enterText("enter int:");
-
+    System.out.println(palindromeValidator.findAllPalindromesUsingBruteForceApproach(input.getLine()));
 
   }
 }

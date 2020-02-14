@@ -3,21 +3,21 @@ package academy.softserve.elementarytasks.task9.palindrome;
 import java.util.Scanner;
 
 public class UserInput {
-  public UserInput(int line) {
+  public UserInput(String line) {
     this.line = line;
   }
   public UserInput() {
   }
-  private int line;
+  private String line;
 
-  public int enterText (String text) {
+  public String enterText (String text) {
     Scanner sc = new Scanner(System.in);
     System.out.println(text);
-    line = Integer.parseInt(sc.nextLine());
+    line = sc.nextLine();
     return line;
   }
 
-  public int getLine() {
+  public String getLine() {
     return line;
   }
 }
