@@ -16,7 +16,7 @@ public class Main {
     PalindromeValidator palindromeValidator = new PalindromeValidator();
 
     input.enterText("enter int:");
-    System.out.println(palindromeValidator.findAllPalindromesUsingBruteForceApproach(input.getLine()));
+    System.out.println(palindromeValidator.findPalindromes(input.getLine()));
 
   }
 }
