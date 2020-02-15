@@ -9,7 +9,7 @@ public class PalindromeValidator {
   public Set<String> findAllPalindromesUsingBruteForceApproach(String input) {
     Set<String> palindromes = new HashSet<>();
     for (int i = 0; i < input.length(); i++) {
-      for (int j = i + 1; j <= input.length(); j++) {
+      for (int j = i + 2; j <= input.length(); j++) {
         if (isPalindrome(input.substring(i, j))) {
           palindromes.add(input.substring(i, j));
         }
