@@ -4,6 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class PalindromeValidator {
+  public PalindromeValidator(String palindromes) {
+    this.palindromes = palindromes;
+  }
+  private String palindromes;
 
   public Set<String> findPalindromes(String input) {
     Set<String> palindromes = new HashSet<>();
@@ -22,4 +26,9 @@ public class PalindromeValidator {
     StringBuilder reverse = plain.reverse();
     return (reverse.toString()).equals(input);
   }
+
+  public String getPalindromes() {
+    return palindromes;
+  }
+
 }

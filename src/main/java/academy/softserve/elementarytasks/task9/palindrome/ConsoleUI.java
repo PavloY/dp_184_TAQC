@@ -1,13 +1,10 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
 import java.util.Scanner;
+import java.util.Set;
 
-public class UserInput {
-  public UserInput(String line) {
-    this.line = line;
-  }
-  public UserInput() {
-  }
+public class ConsoleUI {
+
   private String line;
 
   public String enterText (String text) {
@@ -15,6 +12,10 @@ public class UserInput {
     System.out.println(text);
     line = sc.nextLine();
     return line;
+  }
+
+  public void show (Set<String> text){
+    System.out.println(text);
   }
 
   public String getLine() {

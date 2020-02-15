@@ -1,7 +1,7 @@
 package academy.softserve.elementarytasks.task9;
 
 import academy.softserve.elementarytasks.task9.palindrome.PalindromeValidator;
-import academy.softserve.elementarytasks.task9.palindrome.UserInput;
+import academy.softserve.elementarytasks.task9.palindrome.ConsoleUI;
 
 //Проверить является ли число или его часть палиндромом. Например, число 1234437
 //не является палиндромом, но является палиндромом его часть 3443. Числа меньшие, чем
@@ -12,11 +12,10 @@ import academy.softserve.elementarytasks.task9.palindrome.UserInput;
 public class Main {
   public static void main(String[] args) {
 
-    UserInput input = new UserInput();
-    PalindromeValidator palindromeValidator = new PalindromeValidator();
+    ConsoleUI console = new ConsoleUI();
+    PalindromeValidator palindrome = new PalindromeValidator(console.getLine());
 
-    input.enterText("enter int:");
-    System.out.println(palindromeValidator.findPalindromes(input.getLine()));
-
+    console.enterText("enter int:");
+    console.show(palindrome.findPalindromes(console.getLine()));
   }
 }
