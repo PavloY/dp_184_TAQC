@@ -18,6 +18,6 @@ public class Main {
 
     console.consoleInput();
 //    console.enterText("enter int:");
-    console.show(palindrome.findPalindromes(console.getLine()));
+    console.showSet(palindrome.findPalindromes(console.getLine()));
   }
 }
