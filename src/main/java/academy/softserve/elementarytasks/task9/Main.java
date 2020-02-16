@@ -17,7 +17,6 @@ public class Main {
     PalindromeValidator palindrome = new PalindromeValidator();
 
     console.consoleInput();
-//    console.enterText("enter int:");
     console.showSet(palindrome.findPalindromes(console.getLine()));
   }
 }
