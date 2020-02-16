@@ -14,13 +14,13 @@ public class Main {
     UserOutput output = new UserOutput();
 
 
-    switch(Integer.parseInt(input.printString("This program will show the Fibonacci series\n" +
+    switch(Integer.parseInt(input.scanInput("This program will show the Fibonacci series\n" +
             "select type (1) - range (2) - length:"))) {
       case 1:  output.showFibonacci(
-               input.printRange(input.printString("set lower range:"))
-              ,input.printRange(input.printString("set upper range:")));
+               input.printRange(input.scanInput("set lower range:"))
+              ,input.printRange(input.scanInput("set upper range:")));
         break;
-      case 2:  output.showFibonacci(input.printString("set length:"));
+      case 2:  output.showFibonacci(input.scanInput("set length:"));
         break;
     }
   }

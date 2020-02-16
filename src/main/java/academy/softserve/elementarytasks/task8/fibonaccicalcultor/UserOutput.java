@@ -9,5 +9,4 @@ public class UserOutput {
   public void showFibonacci(String length) {
     System.out.println(FibonacciSupplier.seriesLengthFibonacci(Integer.parseInt(length)));
   }
-
 }
