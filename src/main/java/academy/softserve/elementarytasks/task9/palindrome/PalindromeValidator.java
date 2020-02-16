@@ -1,16 +1,12 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class PalindromeValidator {
-  public PalindromeValidator(String palindromes) {
-    this.palindromes = palindromes;
-  }
-  private String palindromes;
 
   public Set<String> findPalindromes(String input) {
-    Set<String> palindromes = new HashSet<>();
+    Set<String> palindromes = new TreeSet<>();
     for (int i = 0; i < input.length(); i++) {
       for (int j = i + 2; j <= input.length(); j++) {
         if (isPalindrome(input.substring(i, j))) {
@@ -26,9 +22,4 @@ public class PalindromeValidator {
     StringBuilder reverse = plain.reverse();
     return (reverse.toString()).equals(input);
   }
-
-  public String getPalindromes() {
-    return palindromes;
-  }
-
 }

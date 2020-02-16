@@ -6,6 +6,7 @@ import java.util.Set;
 public class ConsoleUI {
 
   private String line;
+  private int lineInt = 0;
 
   public String enterText (String text) {
     Scanner sc = new Scanner(System.in);
@@ -13,6 +14,25 @@ public class ConsoleUI {
     line = sc.nextLine();
     return line;
   }
+
+  public String consoleInput() {
+    do {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("enter int:");
+      line = sc.nextLine();
+      try {
+        lineInt = Integer.parseInt(line);
+        if (lineInt > 10 ) {
+          return line;
+        } else {
+          System.out.println("[0]");
+        }
+      } catch (NumberFormatException ex) {
+        System.out.println("Incorrect input!");
+      }
+    } while (true);
+  }
+
 
   public void show (Set<String> text){
     System.out.println(text);
