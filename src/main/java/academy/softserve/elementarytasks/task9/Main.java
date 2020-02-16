@@ -16,7 +16,7 @@ public class Main {
     ConsoleUI console = new ConsoleUI();
     PalindromeValidator palindrome = new PalindromeValidator();
 
-    console.consoleInput();
-    console.showSet(palindrome.findPalindromes(console.getLine()));
+    console.scanInput();
+    console.showResult(palindrome.findPalindromes(console.getLine()));
   }
 }
