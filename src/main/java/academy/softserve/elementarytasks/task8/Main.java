@@ -13,8 +13,6 @@ public class Main {
 
     ConsoleUI console = new ConsoleUI();
 
-
-
     switch(console.scanInput("This program will show the Fibonacci series\n" +
             "select type (1) - range (2) - length:")) {
       case 1:  console.showFibonacci(
