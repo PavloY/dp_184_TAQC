@@ -4,6 +4,11 @@ import academy.softserve.elementarytasks.task8.fibonaccicalcultor.ConsoleInput;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.Convertation;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.FibonacciSupplier;
 
+/**
+ * 8. Ряд Фибоначчи
+ * Вывести все числа Фибоначчи, которые удовлетворяют переданному в функцию ограничению:
+ * находятся в указанном диапазоне, либо имеют указанную длину.
+ */
 
 public class Main {
 
