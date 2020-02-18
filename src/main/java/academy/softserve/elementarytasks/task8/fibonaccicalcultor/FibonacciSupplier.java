@@ -1,46 +1,56 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class FibonacciSupplier {
+  ConsoleUI console = new ConsoleUI();
 
-  public ArrayList<Integer> seriesRangeFibonacci(int lower, int upper){
-    ArrayList<Integer> mainSeriesFibo = new ArrayList<Integer>();
-    ArrayList<Integer> partFibo = new ArrayList<Integer>();
-    int i = 0;
-    while (true) {
-      if (i == 0) {
-        partFibo.add(0);
-      } else if (i == 1) {
-        partFibo.add(1);
-      } else {
-        partFibo.add(partFibo.get(i - 2) + partFibo.get(i - 1));
-      }
-      if (partFibo.get(i) >= lower && partFibo.get(i) <= upper) {
-        mainSeriesFibo.add(partFibo.get(i));
-      }
-      if (partFibo.get(i) > upper) {
-        break;
-      }
-      i++;
-    }
-    return mainSeriesFibo;
+    private boolean isLength = false;
+    private boolean isRange = false;
+
+    private BigInteger previousNumbers = new BigInteger("0");
+    private BigInteger nextNumbers = new BigInteger("1");
+    private BigInteger sums = new BigInteger("0");
+
+  public BigInteger convert(int lover) {
+    BigInteger loverTemp = new BigDecimal(lover).toBigInteger();
+    return loverTemp;
   }
 
-  public static ArrayList<Integer> seriesLengthFibonacci(int length) {
-    ArrayList<Integer> mainSeriesFibo = new ArrayList<Integer>();
-    int i = 0;
-    while(mainSeriesFibo.size() < length) {
-      if( i == 0) {
-        mainSeriesFibo.add(0);
-      }else if(i == 1) {
-        mainSeriesFibo.add(1);
-      }else {
-        mainSeriesFibo.add(mainSeriesFibo.get(i - 2) + (mainSeriesFibo.get(i -1)));
-      }
-      i++;
-    }
-    return mainSeriesFibo;
-  }
+  public void rangeFibonacci(BigInteger lover, BigInteger upper) {
 
+      do {
+        if ((previousNumbers.compareTo(lover) == 1 || previousNumbers.compareTo(lover) == 0)
+                && (previousNumbers.compareTo(upper) == -1 || previousNumbers.compareTo(upper) == 0)) {
+          console.showFibonacci(previousNumbers);
+        }
+        if (previousNumbers.compareTo(upper) == 1) {
+          isRange = true;
+        }
+        previousNumbers = previousNumbers.add(nextNumbers);
+        sums = previousNumbers;
+        previousNumbers = nextNumbers;
+        nextNumbers = sums;
+
+      } while (!isRange);
+    }
+
+
+  public void lengthFibonacci(BigInteger length) {
+
+   do {
+     if (previousNumbers.toString().length() == Integer.parseInt(String.valueOf(length))) {
+       console.showFibonacci(previousNumbers);
+     }
+     if (previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length))) {
+       isLength = true;
+     }
+     previousNumbers = previousNumbers.add(nextNumbers);
+     sums = previousNumbers;
+     previousNumbers = nextNumbers;
+     nextNumbers = sums;
+
+   } while (!isLength);
+ }
 }
