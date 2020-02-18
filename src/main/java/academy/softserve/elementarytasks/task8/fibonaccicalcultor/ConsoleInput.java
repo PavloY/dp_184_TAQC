@@ -4,18 +4,16 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class ConsoleUI {
+public class ConsoleInput {
 
-  private String line;
-
-  public int scanInput(String text) {
+  public String scanInput(String text) {
     do {
       Scanner sc = new Scanner(System.in);
       showResult(text);
-      line = sc.nextLine();
+      String line = sc.nextLine();
       try {
         BigInteger tempLine = new BigDecimal(line).toBigInteger();
-        return Integer.parseInt(line);
+        return line;
       } catch (NumberFormatException ex) {
         showResult("Incorrect input: You should enter only integers, please try again!\n");
       }
