@@ -5,13 +5,13 @@ import java.math.BigInteger;
 
 public class Convertation {
 
-  public BigInteger convert(String lover) {
-    BigInteger lowerTemp = new BigDecimal(lover).toBigInteger();
+  public BigInteger convert(String lower) {
+    BigInteger lowerTemp = new BigDecimal(lower).toBigInteger();
     return lowerTemp;
   }
 
-  public int convertStringToInt(String lover) {
-    int lowerTemp = Integer.parseInt(lover);
+  public int convertStringToInt(String lower) {
+    int lowerTemp = Integer.parseInt(lower);
     return lowerTemp;
   }
 }
