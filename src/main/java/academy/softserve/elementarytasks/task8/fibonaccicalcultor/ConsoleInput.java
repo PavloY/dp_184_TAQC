@@ -23,9 +23,4 @@ public class ConsoleInput {
   private void showResult(String text) {
     System.out.println(text);
   }
-
-  public void showFibonacci(BigInteger previousNumbers) {
-    System.out.print(previousNumbers + ", ");
-  }
-
 }

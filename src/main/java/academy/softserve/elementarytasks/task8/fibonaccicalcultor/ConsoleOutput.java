@@ -6,7 +6,7 @@ public class ConsoleOutput {
 
 
 
-  private void showResult(String text) {
+  public void showResult(String text) {
     System.out.println(text);
   }
 

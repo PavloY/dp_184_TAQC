@@ -5,17 +5,13 @@ import java.math.BigInteger;
 
 public class Convertation {
 
-  public BigInteger convert(int lover) {
-    BigInteger loverTemp = new BigDecimal(lover).toBigInteger();
-    return loverTemp;
-  }
   public BigInteger convert(String lover) {
-    BigInteger loverTemp = new BigDecimal(lover).toBigInteger();
-    return loverTemp;
+    BigInteger lowerTemp = new BigDecimal(lover).toBigInteger();
+    return lowerTemp;
   }
 
-  public int convertSrtintToInt (String lover) {
-    int loverTemp = Integer.parseInt(lover);
-    return loverTemp;
+  public int convertStringToInt(String lover) {
+    int lowerTemp = Integer.parseInt(lover);
+    return lowerTemp;
   }
 }
