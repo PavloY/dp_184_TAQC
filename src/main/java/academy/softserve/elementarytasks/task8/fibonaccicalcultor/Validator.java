@@ -3,7 +3,7 @@ package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Convertation {
+public class Validator {
 
   public BigInteger convert(String lower) {
     BigInteger lowerTemp = new BigDecimal(lower).toBigInteger();

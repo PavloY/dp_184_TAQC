@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.Set;
 
-public class ConsoleUI {
+public class ConsoleInput {
 
   private String line;
 

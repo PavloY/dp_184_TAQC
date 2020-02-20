@@ -3,7 +3,7 @@ package academy.softserve.elementarytasks.task9.palindrome;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class PalindromeValidator {
+public class PalindromeCreator {
 
   public Set<String> findPalindromes(String input) {
     Set<String> palindromes = new TreeSet<>();

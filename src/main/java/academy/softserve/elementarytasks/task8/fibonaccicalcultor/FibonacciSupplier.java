@@ -21,7 +21,7 @@ public class FibonacciSupplier {
         if (previousNumbers.compareTo(upper) == 1) {
           isRange = true;
         }
-        countFibo(previousNumbers);
+        countFibo();
       } while (!isRange);
     }
 
@@ -33,16 +33,15 @@ public class FibonacciSupplier {
      if (previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length))) {
        isLength = true;
      }
-     countFibo(previousNumbers);
+     countFibo();
    } while (!isLength);
  }
 
-  private BigInteger countFibo(BigInteger previousNumbers) {
-    this.previousNumbers = this.previousNumbers.add(nextNumbers);
-    sums = this.previousNumbers;
-    this.previousNumbers = nextNumbers;
-    nextNumbers = sums;
-    return previousNumbers;
+private void countFibo() {
+  previousNumbers = previousNumbers.add(nextNumbers);
+  sums = previousNumbers;
+  previousNumbers = nextNumbers;
+  nextNumbers = sums;
+}
 
-  }
 }
