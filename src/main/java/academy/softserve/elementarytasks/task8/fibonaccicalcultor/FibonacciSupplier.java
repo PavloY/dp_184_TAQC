@@ -10,7 +10,6 @@ public class FibonacciSupplier {
 
     private BigInteger previousNumbers = new BigInteger("0");
     private BigInteger nextNumbers = new BigInteger("1");
-    private BigInteger sums = new BigInteger("0");
 
   public void creatorFibonacci(BigInteger lover, BigInteger upper) {
       do {
@@ -39,7 +38,7 @@ public class FibonacciSupplier {
 
 private void countFibo() {
   previousNumbers = previousNumbers.add(nextNumbers);
-  sums = previousNumbers;
+  BigInteger sums = previousNumbers;
   previousNumbers = nextNumbers;
   nextNumbers = sums;
 }

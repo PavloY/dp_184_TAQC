@@ -6,12 +6,10 @@ import java.math.BigInteger;
 public class Validator {
 
   public BigInteger convert(String lower) {
-    BigInteger lowerTemp = new BigDecimal(lower).toBigInteger();
-    return lowerTemp;
+    return new BigDecimal(lower).toBigInteger();
   }
 
   public int convertStringToInt(String lower) {
-    int lowerTemp = Integer.parseInt(lower);
-    return lowerTemp;
+    return Integer.parseInt(lower);
   }
 }
