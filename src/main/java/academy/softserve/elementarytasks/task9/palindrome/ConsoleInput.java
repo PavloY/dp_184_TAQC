@@ -3,26 +3,22 @@ package academy.softserve.elementarytasks.task9.palindrome;
 import java.util.Scanner;
 
 public class ConsoleInput {
-
-  public ConsoleInput() {
-  }
+  private static final String ENTER_NUMBER = "Enter the number to calculate the palindrome (only integers):";
 
   ConsoleOutPut print = new ConsoleOutPut();
 
-  private String input;
-
-  public String scanInput() {
+  public String scanInput(String text) {
     Scanner sc = new Scanner(System.in);
-    print.showResult("Enter the number to calculate the palindrome (only integers):");
-    input = sc.nextLine();
-    return input;
+    print.showResult(text);
+    return sc.nextLine();
   }
 
   public String getInput() {
-    if (input == null) {
-      input = scanInput();
-    }
-    return input;
+    return scanInput(ENTER_NUMBER);
   }
+
+
+
 }
+
 

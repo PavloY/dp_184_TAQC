@@ -5,17 +5,21 @@ import java.math.BigInteger;
 import java.util.Set;
 
 public class Validator {
+  private String inputValidate;
+  private Set<String> setValidate;
+  private static ConsoleOutPut print;
+
   public Validator(String inputValidate) {
+    this();
     this.inputValidate = inputValidate;
   }
   public Validator(Set<String> setValidate) {
+    this();
     this.setValidate = setValidate;
   }
-
-  ConsoleOutPut print = new ConsoleOutPut();
-
-  private String inputValidate;
-  private Set<String> setValidate;
+  private Validator() {
+    print = new ConsoleOutPut();
+  }
 
   public String validateInput() {
       try {
@@ -29,20 +33,18 @@ public class Validator {
   }
 
   public Set<String> validateSet () {
-    if (setValidate.size() <= 1) {
+    if (setValidate.size() < 1) {
       setValidate.add("0");
     }
     return setValidate;
   }
 
   public Set<String> getValidateSet() {
-      setValidate = validateSet() ;
-    return setValidate;
+    return validateSet();
   }
 
   public String getInputValidate() {
-    inputValidate = validateInput();
-    return inputValidate;
+    return validateInput();
   }
 }
 
