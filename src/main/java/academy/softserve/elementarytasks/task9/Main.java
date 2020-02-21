@@ -20,7 +20,7 @@ public class Main {
     Validator validator = new Validator(input.getInput());
     PalindromeSequence palindrome = new PalindromeSequence(validator.getInputValidate());
     Validator validatorSet = new Validator(palindrome.getPalindromes());
-    ConsoleOutPut print = new ConsoleOutPut(validatorSet.getSetValidate());
+    ConsoleOutPut print = new ConsoleOutPut(validatorSet.getValidateSet());
     print.showResult();
   }
 }
