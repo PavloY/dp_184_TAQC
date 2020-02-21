@@ -4,11 +4,22 @@ import java.util.Set;
 
 public class ConsoleOutPut {
 
+  public ConsoleOutPut() {
+  }
+  public ConsoleOutPut(Set<String> printSet) {
+    this.printSet = printSet;
+  }
+
+  private Set<String> printSet;
+
   public void showResult(String text) {
     System.out.println(text);
   }
 
-  public void showResult(Set<String> set) {
-    System.out.println(set);
+  public void showResult() {
+    System.out.println(printSet);
   }
+
+
+
 }
