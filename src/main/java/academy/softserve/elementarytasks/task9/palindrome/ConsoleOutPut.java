@@ -19,7 +19,4 @@ public class ConsoleOutPut {
   public void showResult() {
     System.out.println(printSet);
   }
-
-
-
 }
