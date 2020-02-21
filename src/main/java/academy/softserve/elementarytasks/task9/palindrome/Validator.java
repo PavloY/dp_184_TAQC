@@ -12,22 +12,19 @@ public class Validator {
     this.setValidate = setValidate;
   }
 
-  ConsoleInput scan = new ConsoleInput();
   ConsoleOutPut print = new ConsoleOutPut();
 
   private String inputValidate;
   private Set<String> setValidate;
 
   public String validateInput() {
-    do {
-      scan.getInput();
       try {
-        BigInteger tempValidate = new BigDecimal(scan.getInput()).toBigInteger();
-        return inputValidate;
+        BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger();
+        return inputValid.toString();
       } catch (NumberFormatException ex) {
         print.showResult("Incorrect input: You should enter only integers, please try again!\n");
       }
-    } while (true);
+    return inputValidate;
   }
 
   public Set<String> validateSet () {
@@ -42,14 +39,12 @@ public class Validator {
   public Set<String> getSetValidate() {
     if (setValidate == null) {
       setValidate = validateSet() ;
-    }
+   }
     return setValidate;
   }
 
   public String getInputValidate() {
-    if (inputValidate == null) {
       inputValidate = validateInput();
-    }
     return inputValidate;
   }
 }
