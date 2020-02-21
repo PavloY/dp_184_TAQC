@@ -58,4 +58,29 @@ public class PalindromeSequenceTests {
   public void testFindPalindromesThree() {
     Assert.assertEquals(palindrome.findPalindromes("1234321").toString(), "[1234321, 23432, 343]");
   }
+
+  @Test
+  public void testGetPalindromesThree() {
+    PalindromeSequence palindrome = new PalindromeSequence("123321");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[123321, 2332, 33]");
+  }
+
+  @Test
+  public void testGetPalindromesZero() {
+    PalindromeSequence palindrome = new PalindromeSequence("0");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[]");
+  }
+
+  @Test
+  public void testGetPalindromesSpace() {
+    PalindromeSequence palindrome = new PalindromeSequence(" ");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[]");
+  }
+
+  @Test
+  public void testGetPalindromesOne() {
+    PalindromeSequence palindrome = new PalindromeSequence("22");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
+  }
+
 }
