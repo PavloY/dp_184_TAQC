@@ -3,6 +3,9 @@ package academy.softserve.elementarytasks.task9.palindrome;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ValidatorTests {
 
   @Test
@@ -67,8 +70,10 @@ public class ValidatorTests {
 
   @Test
   public void testValidateSet() {
-    Validator validator = new Validator("12332");
-    Assert.assertEquals(validator.validateSet().toString(), "0");
+    Set<String> setA = new HashSet<String>();;
+    setA.add("123");
+    Validator validator = new Validator(setA);
+    Assert.assertEquals(validator.validateSet().toString(), "[123]");
   }
 
 
