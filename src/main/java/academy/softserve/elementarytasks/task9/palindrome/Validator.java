@@ -5,28 +5,29 @@ import java.math.BigInteger;
 import java.util.Set;
 
 public class Validator {
+  private static final String ERROR_TEXT = "Incorrect input: You should enter only integers, please try again!\n";
   private String inputValidate;
   private Set<String> setValidate;
   private static ConsoleOutPut print;
 
-  public Validator(String inputValidate) {
-    this();
-    this.inputValidate = inputValidate;
-  }
   public Validator(Set<String> setValidate) {
     this();
     this.setValidate = setValidate;
+  }
+  public Validator(String inputValidate) {
+    this();
+    this.inputValidate = inputValidate;
   }
   private Validator() {
     print = new ConsoleOutPut();
   }
 
-  public String validateInput() {
+  public String validateInput(String text) {
       try {
         BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger();
         inputValidate = inputValid.toString();
       } catch (NumberFormatException ex) {
-        print.showResult("Incorrect input: You should enter only integers, please try again!\n");
+        print.showResult(text);
         inputValidate = "0";
       }
     return inputValidate;
@@ -44,7 +45,7 @@ public class Validator {
   }
 
   public String getInputValidate() {
-    return validateInput();
+    return validateInput(ERROR_TEXT);
   }
 }
 
