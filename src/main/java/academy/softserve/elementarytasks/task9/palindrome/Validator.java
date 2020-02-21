@@ -8,7 +8,6 @@ public class Validator {
   public Validator(String inputValidate) {
     this.inputValidate = inputValidate;
   }
-
   public Validator(Set<String> setValidate) {
     this.setValidate = setValidate;
   }

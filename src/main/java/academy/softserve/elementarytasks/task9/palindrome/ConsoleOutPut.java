@@ -9,10 +9,6 @@ public class ConsoleOutPut {
   }
 
   public void showResult(Set<String> set) {
-    //  if (set.size() < 1) {
-    //  showResult("[0]");
-    // } else {
     System.out.println(set);
-    //}
   }
 }
