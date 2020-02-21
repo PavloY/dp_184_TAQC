@@ -1,14 +1,7 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
-
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
 
 public class PalindromeSequenceTests {
 
@@ -80,6 +73,18 @@ public class PalindromeSequenceTests {
   @Test
   public void testGetPalindromesOne() {
     PalindromeSequence palindrome = new PalindromeSequence("22");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
+  }
+
+  @Test
+  public void testGetPalindromesDoublePoint() {
+    PalindromeSequence palindrome = new PalindromeSequence("22.3");
+    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
+  }
+
+  @Test
+  public void testGetPalindromesDoubleComma() {
+    PalindromeSequence palindrome = new PalindromeSequence("22,3");
     Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
   }
 
