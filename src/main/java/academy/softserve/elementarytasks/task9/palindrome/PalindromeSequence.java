@@ -5,12 +5,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class PalindromeSequence {
+  private String input;
+  private Set<String> setPalindrome;
+
   public PalindromeSequence(String input) {
     this.input = input;
   }
-
-  private String input;
-  private Set<String> setPalindrome;
+  public PalindromeSequence() {
+  }
 
   public Set<String> findPalindromes(String input) {
     setPalindrome = new TreeSet<>();
