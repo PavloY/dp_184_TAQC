@@ -1,7 +1,6 @@
 package academy.softserve.elementarytasks.task8;
 
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.ConsoleInput;
-
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.Parametr;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.Validator;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.FibonacciSupplier;
