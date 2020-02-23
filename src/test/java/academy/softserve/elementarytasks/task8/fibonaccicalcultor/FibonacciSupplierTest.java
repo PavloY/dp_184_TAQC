@@ -1,6 +1,5 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
-import com.sun.org.apache.xpath.internal.functions.FuncFalse;
 import org.junit.Assert;
 import org.junit.Test;
 
