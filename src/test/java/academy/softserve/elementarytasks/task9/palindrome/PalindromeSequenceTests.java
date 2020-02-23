@@ -84,7 +84,7 @@ public class PalindromeSequenceTests {
 
   @Test
   public void testGetPalindromesDoubleComma() {
-    PalindromeSequence palindrome = new PalindromeSequence("22,3");
+    PalindromeSequence palindrome = new PalindromeSequence("22,9");
     Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
   }
 
