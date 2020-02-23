@@ -24,7 +24,7 @@ public class Validator {
 
   public String validateInput(String text) {
       try {
-        BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger();
+        BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger().abs();
         inputValidate = inputValid.toString();
       } catch (NumberFormatException ex) {
         print.showResult(text);
