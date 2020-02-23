@@ -1,15 +1,41 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
+
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class Validator {
+  private BigInteger inputValid;
 
-  public BigInteger convert(String lower) {
-    return new BigDecimal(lower).toBigInteger();
+  public int convertStrToInt(String text) {
+    try {
+      Integer.parseInt(text);
+    }catch (NumberFormatException ex) {
+      ConsoleOutPut print = new ConsoleOutPut();
+      print.showResult(Parametr.SHOW_ERROR);
+    }
+    return Integer.parseInt(text);
+  }
+  public BigInteger convertStrToBigInt(String string){
+    try {
+      inputValid = new BigDecimal(string).toBigInteger();
+    }catch (NumberFormatException ex) {
+      ConsoleOutPut print = new ConsoleOutPut();
+      print.showResult(Parametr.SHOW_ERROR);
+    }
+    return inputValid;
   }
 
-  public int convertStringToInt(String lower) {
-    return Integer.parseInt(lower);
+  public String validateInput(String inputValidate ) {
+    try {
+      BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger().abs();
+    } catch (NumberFormatException ex) {
+      ConsoleOutPut print = new ConsoleOutPut();
+      print.showResult(Parametr.SHOW_ERROR);
+    }
+    return inputValidate;
   }
+
+
 }

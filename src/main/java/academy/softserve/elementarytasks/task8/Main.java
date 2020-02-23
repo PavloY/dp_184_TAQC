@@ -1,9 +1,11 @@
 package academy.softserve.elementarytasks.task8;
 
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.ConsoleInput;
-import academy.softserve.elementarytasks.task8.fibonaccicalcultor.ConsoleOutput;
+
+import academy.softserve.elementarytasks.task8.fibonaccicalcultor.Parametr;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.Validator;
 import academy.softserve.elementarytasks.task8.fibonaccicalcultor.FibonacciSupplier;
+import academy.softserve.elementarytasks.task8.fibonaccicalcultor.ConsoleOutPut;
 
 /**
  * 8. Ряд Фибоначчи
@@ -16,23 +18,21 @@ public class Main {
   public static void main(String[] args) {
 
     ConsoleInput console = new ConsoleInput();
-    FibonacciSupplier fibonacci = new FibonacciSupplier();
     Validator validator = new Validator();
-    ConsoleOutput consoleOutput = new  ConsoleOutput();
+    FibonacciSupplier fibonacci = new FibonacciSupplier();
+    ConsoleOutPut output = new ConsoleOutPut();
 
-    switch (validator.convertStringToInt(console.scanInput("This program will show the Fibonacci series \n" +
-            "select type (1) - range (2) - length:"))) {
-      case 1:
-        fibonacci.creatorFibonacci(validator.convert(console.scanInput("lover"))
-                , validator.convert(console.scanInput("upper")));
+    switch (validator.convertStrToInt(validator.validateInput(console.scanInput(Parametr.ENTER_NUMBER)))){
+      case 1:  output.showFibonacci(fibonacci.creatorFibonacci(validator.convertStrToBigInt
+                      (validator.validateInput(console.scanInput(Parametr.ENTER_LOWER))),
+              validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_UPPER)))));
         break;
-      case 2:
-        fibonacci.creatorFibonacci(validator.convert(console.scanInput("length")));
+      case 2:  output.showFibonacci(fibonacci.creatorFibonacci
+              (validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_LENGTH)))));
         break;
       default:
-        consoleOutput.showResult("Incorrect input!");
+        output.showResult(Parametr.SHOW_ERROR);
         break;
     }
-    }
   }
-
+}

@@ -15,9 +15,6 @@ public class ConsoleInput {
   public String getInput() {
     return scanInput(ENTER_NUMBER);
   }
-
-
-
 }
 
 

@@ -91,7 +91,16 @@ public class ValidatorTests {
     Assert.assertEquals(validator.validateSet().toString(), "[0]");
   }
 
+  @Test
+  public void testGetValidateSet() {
+    Set<String> setA = new HashSet<String>();;
+    setA.add("123321");
+    Validator validator = new Validator(setA);
+    Assert.assertEquals(validator.getValidateSet().toString(), "[123321]");
+  }
 }
+
+
 
 
 

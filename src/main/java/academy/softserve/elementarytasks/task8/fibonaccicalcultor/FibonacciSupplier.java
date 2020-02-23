@@ -1,39 +1,47 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
 import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
+
 
 public class FibonacciSupplier {
-  ConsoleOutput consoleOutput = new ConsoleOutput();
 
+  private Set<String> setFibonacci;
   private boolean isLength = false;
   private boolean isRange = false;
-
   private BigInteger previousNumbers = new BigInteger("0");
   private BigInteger nextNumbers = new BigInteger("1");
 
-  public void creatorFibonacci(BigInteger lover, BigInteger upper) {
+
+
+  public Set<String> creatorFibonacci(BigInteger lower, BigInteger upper) {
+    setFibonacci = new HashSet<>();
     do {
-      if ((previousNumbers.compareTo(lover) == 1 || previousNumbers.compareTo(lover) == 0)
+      if ((previousNumbers.compareTo(lower) == 1 || previousNumbers.compareTo(lower) == 0)
               && (previousNumbers.compareTo(upper) == -1 || previousNumbers.compareTo(upper) == 0)) {
-        consoleOutput.showFibonacci(previousNumbers);
+        setFibonacci.add((previousNumbers).toString());
       }
       if (previousNumbers.compareTo(upper) == 1) {
         isRange = true;
       }
       countSequenceFibonacci();
     } while (!isRange);
+    return setFibonacci;
   }
 
-  public void creatorFibonacci(BigInteger length) {
+  public Set<String> creatorFibonacci(BigInteger length) {
+    setFibonacci = new HashSet<>();
     do {
       if (previousNumbers.toString().length() == Integer.parseInt(String.valueOf(length))) {
-        consoleOutput.showFibonacci(previousNumbers);
+        setFibonacci.add((previousNumbers).toString());
       }
       if (previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length))) {
         isLength = true;
       }
       countSequenceFibonacci();
     } while (!isLength);
+    return setFibonacci;
   }
 
   private void countSequenceFibonacci() {
