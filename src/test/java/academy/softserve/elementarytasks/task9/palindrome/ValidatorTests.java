@@ -59,7 +59,7 @@ public class ValidatorTests {
   @Test
   public void testValidateInputDoubleMinus() {
     Validator validator = new Validator("-12332");
-    Assert.assertEquals(validator.validateInput("-12332"), "-12332");
+    Assert.assertEquals(validator.validateInput("-12332"), "12332");
   }
 
   @Test
@@ -69,15 +69,27 @@ public class ValidatorTests {
   }
 
   @Test
-  public void testValidateSet() {
+  public void testValidateSetInt() {
     Set<String> setA = new HashSet<String>();;
     setA.add("123");
     Validator validator = new Validator(setA);
     Assert.assertEquals(validator.validateSet().toString(), "[123]");
   }
 
+  @Test
+  public void testValidateSetZero() {
+    Set<String> setA = new HashSet<String>();;
+    setA.add("0");
+    Validator validator = new Validator(setA);
+    Assert.assertEquals(validator.validateSet().toString(), "[0]");
+  }
 
-
+  @Test
+  public void testValidateSetNoPalindrome() {
+    Set<String> setA = new HashSet<String>();;
+    Validator validator = new Validator(setA);
+    Assert.assertEquals(validator.validateSet().toString(), "[0]");
+  }
 
 }
 
