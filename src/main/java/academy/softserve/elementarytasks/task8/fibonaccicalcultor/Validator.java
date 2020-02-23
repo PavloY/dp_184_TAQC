@@ -1,12 +1,11 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
-
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class Validator {
   private BigInteger inputValid;
+  private BigInteger inputValidInt;
 
   public int convertStrToInt(String text) {
     try {
@@ -17,6 +16,7 @@ public class Validator {
     }
     return Integer.parseInt(text);
   }
+
   public BigInteger convertStrToBigInt(String string){
     try {
       inputValid = new BigDecimal(string).toBigInteger();
@@ -29,13 +29,11 @@ public class Validator {
 
   public String validateInput(String inputValidate ) {
     try {
-      BigInteger inputValid = new BigDecimal(inputValidate).toBigInteger().abs();
+      inputValidInt = new BigDecimal(inputValidate).toBigInteger().abs();
     } catch (NumberFormatException ex) {
       ConsoleOutPut print = new ConsoleOutPut();
       print.showResult(Parametr.SHOW_ERROR);
     }
-    return inputValidate;
+    return inputValidInt.toString();
   }
-
-
 }
