@@ -1,11 +1,25 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class PalindromeSequenceTests {
+import java.util.Set;
+import java.util.TreeSet;
 
-  PalindromeSequence palindrome = new PalindromeSequence();
+public class PalindromeSequenceTests {
+  PalindromeSequence palindrome;
+
+  @Before
+  public void init (){
+    palindrome = new PalindromeSequence();
+  }
+
+  @After
+  public void tearDown(){
+    palindrome = null;
+  }
 
   @Test
   public void testIsPalindromeInteger() {
@@ -39,7 +53,14 @@ public class PalindromeSequenceTests {
 
   @Test
   public void testFindPalindromesOne() {
-    Assert.assertEquals(palindrome.findPalindromes("11").toString(), "[11]");
+  //given
+    String input = "11";
+    Set<String> expected = new TreeSet<>();
+    expected.add("11");
+  //when
+    Set<String> actual = palindrome.findPalindromes(input);
+  //then
+    Assert.assertEquals(expected, actual);
   }
 
   @Test

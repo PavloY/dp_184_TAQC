@@ -32,9 +32,8 @@ public class FibonacciSupplier {
       if (previousNumbers.toString().length() == Integer.parseInt(String.valueOf(length))) {
         setFibonacci.add((previousNumbers).toString());
       }
-      if (previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length))) {
-        isLength = true;
-      }
+      isLength = (previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length)));
+
       countSequenceFibonacci();
     } while (!isLength);
     return setFibonacci;

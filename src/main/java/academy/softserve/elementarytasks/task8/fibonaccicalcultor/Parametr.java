@@ -1,6 +1,6 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
-public class Parametr {
+public final class Parametr {
   public static final String ENTER_NUMBER = "This program will show the Fibonacci series \n " +
           "select type (1) - range (2) - length:";
   public static final String ENTER_LOWER = "Enter lower range:";
