@@ -1,17 +1,26 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
-import org.junit.Assert;
-import org.junit.Test;
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ValidatorTests {
 
+  Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
+
   @Test
   public void testValidateInputInt() {
+    logger.info("Start testValidateInputInt ");
     Validator validator = new Validator("12321");
     Assert.assertEquals(validator.validateInput("12321"), "12321");
+    logger.info("Stop testValidateInputInt ");
   }
 
   @Test
