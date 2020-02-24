@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class FibonacciSupplier {
-    private boolean isRangeExist = false;
+    private boolean isRangeExist;
     private boolean isLengthExist;
     private BigInteger previousNumbers = new BigInteger("0");
     private BigInteger nextNumbers = new BigInteger("1");
@@ -35,7 +35,6 @@ public class FibonacciSupplier {
         return setFibonacci;
     }
 
-
     private void countSequenceFibonacci() {
         previousNumbers = previousNumbers.add(nextNumbers);
         BigInteger sums = previousNumbers;
@@ -52,10 +51,12 @@ public class FibonacciSupplier {
     }
 
     private boolean isLengthExist(BigInteger length) {
-        if (previousNumbers.toString().length() == Integer.parseInt(String.valueOf(length))) {
+        if (previousNumbers.toString().length() == length.toString().length()) {
             isLengthExist = true;
         }
         return isLengthExist;
     }
+
+
 }
 
