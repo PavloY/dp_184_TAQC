@@ -4,14 +4,17 @@ import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import org.junit.runners.Parameterized;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
-
+@RunWith(Parameterized.class)
 public class ValidatorTests {
+
+
 
   Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
 
