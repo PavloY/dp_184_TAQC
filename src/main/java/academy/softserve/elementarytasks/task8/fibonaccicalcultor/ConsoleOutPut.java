@@ -1,7 +1,8 @@
 package academy.softserve.elementarytasks.task8.fibonaccicalcultor;
 
-import java.math.BigInteger;
-import java.util.Set;
+
+import java.util.ArrayList;
+
 
 public class ConsoleOutPut {
 
@@ -10,7 +11,8 @@ public class ConsoleOutPut {
     System.out.println(text);
   }
 
-  public void showFibonacci(Set<String> printSet) {
+
+  public void showFibonacci(ArrayList<String> printSet) {
     System.out.print(printSet);
   }
 
