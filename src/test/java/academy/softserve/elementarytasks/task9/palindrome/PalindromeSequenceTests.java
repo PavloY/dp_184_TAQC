@@ -53,13 +53,12 @@ public class PalindromeSequenceTests {
 
   @Test
   public void testFindPalindromesOne() {
-  //given
     String input = "11";
     Set<String> expected = new TreeSet<>();
     expected.add("11");
-  //when
+
     Set<String> actual = palindrome.findPalindromes(input);
-  //then
+
     Assert.assertEquals(expected, actual);
   }
 
