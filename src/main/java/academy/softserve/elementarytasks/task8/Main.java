@@ -22,12 +22,12 @@ public class Main {
     ConsoleOutPut output = new ConsoleOutPut();
 
     switch (validator.convertStrToInt(validator.validateInput(console.scanInput(Parametr.ENTER_NUMBER)))){
-      case 1:  output.showFibonacci(fibonacci.creatorFibonacci(validator.convertStrToBigInt
-                      (validator.validateInput(console.scanInput(Parametr.ENTER_LOWER))),
-              validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_UPPER)))));
+      case 1:  output.showFibonacci(fibonacci.creatorFibonacci(
+              validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_LOWER)))
+             ,validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_UPPER)))));
         break;
-      case 2:  output.showFibonacci(fibonacci.creatorFibonacci
-              (validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_LENGTH)))));
+      case 2:  output.showFibonacci(fibonacci.creatorFibonacci(
+              validator.convertStrToBigInt(validator.validateInput(console.scanInput(Parametr.ENTER_LENGTH)))));
         break;
       default:
         output.showResult(Parametr.SHOW_ERROR);
