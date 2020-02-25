@@ -16,30 +16,34 @@ import java.math.BigInteger;
 
 public class Main {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    ConsoleInput console = new ConsoleInput();
-    Validator validator = new Validator();
-    FibonacciSupplier fibonacci = new FibonacciSupplier();
-    ConsoleOutPut output = new ConsoleOutPut();
+        ConsoleInput console = new ConsoleInput();
+        Validator validator = new Validator();
+        FibonacciSupplier fibonacci = new FibonacciSupplier();
+        ConsoleOutPut output = new ConsoleOutPut();
 
-    switch (getInputCase(console, validator)){
-      case 1:  output.showFibonacci(fibonacci.creatorFibonacci(
-              getInput(console, validator, Parametr.ENTER_LOWER)
-             ,getInput(console, validator, Parametr.ENTER_UPPER)));
-        break;
-      case 2:  output.showFibonacci(fibonacci.creatorFibonacci(
-              getInput(console, validator, Parametr.ENTER_LENGTH)));
-        break;
-      default:
-        output.showResult(Parametr.SHOW_ERROR);
-        break;
+        switch (getInputCase(console, validator)) {
+            case 1:
+                output.showFibonacci(fibonacci.creatorFibonacci(
+                        getInput(console, validator, Parametr.ENTER_LOWER)
+                        , getInput(console, validator, Parametr.ENTER_UPPER)));
+                break;
+            case 2:
+                output.showFibonacci(fibonacci.creatorFibonacci(
+                        getInput(console, validator, Parametr.ENTER_LENGTH)));
+                break;
+            default:
+                output.showResult(Parametr.SHOW_ERROR);
+                break;
+        }
     }
-  }
-  private static int getInputCase(ConsoleInput console, Validator validator) {
-    return validator.convertStrToInt(validator.validateInput(console.scanInput(Parametr.ENTER_NUMBER)));
-  }
-  private static BigInteger getInput(ConsoleInput console, Validator validator, String text) {
-    return validator.convertStrToBigInt(validator.validateInput(console.scanInput(text)));
-  }
+
+    private static int getInputCase(ConsoleInput console, Validator validator) {
+        return validator.convertStrToInt(validator.validateInput(console.scanInput(Parametr.ENTER_NUMBER)));
+    }
+
+    private static BigInteger getInput(ConsoleInput console, Validator validator, String text) {
+        return validator.convertStrToBigInt(validator.validateInput(console.scanInput(text)));
+    }
 }
