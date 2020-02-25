@@ -56,14 +56,15 @@ public class FibonacciSupplier {
     }
 
     private boolean isInTheLength(BigInteger previousNumbers, BigInteger length) {
-        if (previousNumbers.toString().length() == length.toString().length()) {
+        if (previousNumbers.toString().length() == Integer.parseInt(String.valueOf(length))) {
             isLengthExist = true;
         }
         return isLengthExist;
     }
 
     private boolean isLengthInRange(BigInteger previousNumbers, BigInteger length) {
-        if ((previousNumbers.toString().length() > Integer.parseInt(length.toString()))) {
+        //Integer.parseInt(String.valueOf(length))
+        if ((previousNumbers.toString().length() > Integer.parseInt(String.valueOf(length)))) {
             isLengthUpper = true;
         }
         return isLengthUpper;
