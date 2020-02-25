@@ -10,10 +10,9 @@ public class FibonacciSupplier {
     private boolean isRangeTrue;
     private BigInteger previousNumbers = new BigInteger("0");
     private BigInteger nextNumbers = new BigInteger("1");
-    ArrayList<String> setFibonacci = new ArrayList<String>();
-
 
     public ArrayList<String> creatorFibonacci(BigInteger lower, BigInteger upper) {
+        ArrayList<String> setFibonacci = new ArrayList<String>();
         boolean isRange;
         do {
             if (isInTheRange(previousNumbers, lower, upper)) {
@@ -26,6 +25,7 @@ public class FibonacciSupplier {
     }
 
     public ArrayList<String> creatorFibonacci(BigInteger length) {
+        ArrayList<String> setFibonacci = new ArrayList<String>();
         boolean isLength;
         do {
             if (isInTheLength(previousNumbers, length)){
