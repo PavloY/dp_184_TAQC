@@ -13,15 +13,23 @@ import java.util.TreeSet;
 
 @RunWith(JUnitParamsRunner.class)
 public class PalindromeSequenceTests {
+
   PalindromeSequence palindrome;
 
   public static Object[][] palindromeTrue(){
     return new Object[][] {
             {"12321"},
             {"1234321"},
+            {"1234554321"},
+            {"123456654321"},
+            {"12345677654321"},
+            {"1234567887654321"},
+            {"123456789987654321"},
             {"0"},
             {""},
-            {"civic"}
+            {"civic"},
+            {"repaper"},
+            {"I did did I"}
     };
   }
 
@@ -30,7 +38,21 @@ public class PalindromeSequenceTests {
             {"123"},
             {"321"},
             {"help"},
-            {"-123"}
+            {"-123"},
+            {"-0"}
+    };
+  }
+  public static Object[][] palindromeFind(){
+    return new Object[][] {
+            {"11" ,"11"},
+            {"1221, 22" ,"1221"},
+            {"123321, 2332, 33" ,"123321"},
+            {"12344321, 234432, 3443, 44" ,"12344321"},
+            {"1234554321, 23455432, 345543, 4554, 55" ,"1234554321"},
+            {"123456654321, 2345665432, 34566543, 456654, 5665, 66" ,"123456654321"},
+            {"12345677654321, 234567765432, 3456776543, 45677654, 567765, 6776, 77" ,"12345677654321"},
+            {"1234567887654321, 23456788765432, 345678876543, 4567887654, 56788765, 678876, 7887, 88" ,"1234567887654321"},
+            {"123456789987654321, 2345678998765432, 34567899876543, 456789987654, 5678998765, 67899876, 789987, 8998, 99" ,"123456789987654321"}
     };
   }
 
@@ -38,6 +60,7 @@ public class PalindromeSequenceTests {
   public void init (){
     palindrome = new PalindromeSequence();
   }
+
   @After
   public void tearDown(){
     palindrome = null;
@@ -61,71 +84,14 @@ public class PalindromeSequenceTests {
     Assert.assertFalse(actual);
   }
 
-
-
   @Test
-  @Parameters({
-        "11,11",
-        "12321, 12321"
-  })
+  @Parameters(method = "palindromeFind")
   public void testFindPalindromes(String expect, String input) {
     Set<String> expected = new TreeSet<>();
     expected.add(expect);
 
     Set<String> actual = palindrome.findPalindromes(input);
 
-    Assert.assertEquals(expected, actual);
+    Assert.assertEquals(expected.toString(), actual.toString());
   }
-
-
-
-/*
-  @Test
-  public void testFindPalindromesTwo() {
-    Assert.assertEquals(palindrome.findPalindromes("12321").toString(), "[12321, 232]");
-  }
-
-  @Test
-  public void testFindPalindromesThree() {
-    Assert.assertEquals(palindrome.findPalindromes("1234321").toString(), "[1234321, 23432, 343]");
-  }
-
-  @Test
-  public void testGetPalindromesThree() {
-    PalindromeSequence palindrome = new PalindromeSequence("123321");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[123321, 2332, 33]");
-  }
-
-  @Test
-  public void testGetPalindromesZero() {
-    PalindromeSequence palindrome = new PalindromeSequence("0");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[]");
-  }
-
-  @Test
-  public void testGetPalindromesSpace() {
-    PalindromeSequence palindrome = new PalindromeSequence(" ");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[]");
-  }
-
-  @Test
-  public void testGetPalindromesOne() {
-    PalindromeSequence palindrome = new PalindromeSequence("22");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
-  }
-
-  @Test
-  public void testGetPalindromesDoublePoint() {
-    PalindromeSequence palindrome = new PalindromeSequence("22.3");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
-  }
-
-  @Test
-  public void testGetPalindromesDoubleComma() {
-    PalindromeSequence palindrome = new PalindromeSequence("22,9");
-    Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
-  }
-
- */
-
 }
