@@ -15,10 +15,10 @@ public class FibonacciSupplier {
         ArrayList<String> setFibonacci = new ArrayList<String>();
         boolean isRange;
         do {
-            if (isInTheRange(previousNumbers, lower, upper)) {
-                setFibonacci.add((previousNumbers).toString());
-            }
             isRange = isRangeTrue(previousNumbers, upper);
+            if ((!isRange) && (isInTheRange(previousNumbers, lower, upper)))  {
+                setFibonacci.add(previousNumbers.toString());
+            }
             countSequenceFibonacci();
         } while (!isRange);
         return setFibonacci;
@@ -28,8 +28,10 @@ public class FibonacciSupplier {
         ArrayList<String> setFibonacci = new ArrayList<String>();
         boolean isLength;
         do {
-            if (isInTheLength(previousNumbers, length)){
-                setFibonacci.add((previousNumbers).toString());
+            if (isInTheLength(previousNumbers, length)) {
+                if (!isLengthInRange(previousNumbers, length)) {
+                    setFibonacci.add((previousNumbers).toString());
+                }
             }
             isLength = isLengthInRange(previousNumbers, length);
             countSequenceFibonacci();
@@ -42,6 +44,7 @@ public class FibonacciSupplier {
         BigInteger sums = previousNumbers;
         previousNumbers = nextNumbers;
         nextNumbers = sums;
+
     }
 
     private boolean isInTheRange(BigInteger previousNumbers, BigInteger lower, BigInteger upper) {
@@ -60,7 +63,7 @@ public class FibonacciSupplier {
     }
 
     private boolean isLengthInRange(BigInteger previousNumbers, BigInteger length) {
-        if ((previousNumbers.toString().length() > length.toString().length())) {
+        if ((previousNumbers.toString().length() > Integer.parseInt(length.toString()))) {
             isLengthUpper = true;
         }
         return isLengthUpper;
