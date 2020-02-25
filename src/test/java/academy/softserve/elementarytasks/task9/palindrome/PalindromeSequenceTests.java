@@ -61,11 +61,6 @@ public class PalindromeSequenceTests {
     palindrome = new PalindromeSequence();
   }
 
-  @After
-  public void tearDown(){
-    palindrome = null;
-  }
-
   @Test
   @Parameters(method = "palindromeTrue")
   public void testIsPalindromeTrue(String input) {
@@ -93,5 +88,10 @@ public class PalindromeSequenceTests {
     Set<String> actual = palindrome.findPalindromes(input);
 
     Assert.assertEquals(expected.toString(), actual.toString());
+  }
+
+  @After
+  public void tearDown(){
+    palindrome = null;
   }
 }
