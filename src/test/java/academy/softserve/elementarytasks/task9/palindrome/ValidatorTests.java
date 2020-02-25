@@ -1,107 +1,101 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.*;
+import org.junit.rules.MethodRule;
+import org.junit.rules.TestWatchman;
 import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
-import org.junit.runners.Parameterized;
+import org.junit.runners.model.FrameworkMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Method;
 import java.util.*;
 
-@RunWith(Parameterized.class)
+@RunWith(JUnitParamsRunner.class)
 public class ValidatorTests {
 
-  @Parameterized.Parameters(name = "expected:{0}, actual:{1}")
-  public static Collection<Object[]>data(){
-    return Arrays.asList(new Object[][] {
-      {"11","11"},
-      {"12321","12321"},
-    });
+  Validator validator;
+
+   static final Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
+  @Rule public MethodRule watchman = new TestWatchman() {
+    public void starting(FrameworkMethod method) {
+      logger.info("Run Test {}...", method.getName());
+    }
+    public void succeeded(FrameworkMethod method) {
+      logger.info("Test {} succeeded.", method.getName());
+    }
+    public void failed(Throwable e, FrameworkMethod method) {
+      logger.error("Test {} failed with {}.", method.getName(), e);
+    }
+  };
+  Stack<String> stack;
+
+  public static Object[][] validateInput() {
+    return new Object[][]{
+            {"11" ,"11"},
+            {"12321", "12321"},
+            {" ", "0"},
+            {"11.23", "11"},
+            {"11,23", "0"},
+            {"11-23", "0"},
+            {"11:23", "0"},
+            {"-12332", "12332"},
+            {"123/32", "0"}
+    };
   }
 
-  Validator validator;
- // Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
- // @Parameterized.Parameter(0)
-  public String expected;
- // @Parameterized.Parameter(1)
-  public String input;
+  public static Object[][] validateSet() {
+    return new Object[][]{
+            {"11111" ,"11111"}
+    };
+  }
 
-  public ValidatorTests(String input, String expected) {
-    this.input = input;
-    this.expected = expected;
+  @Before
+  public void createEmptyStack (){
+    stack = new Stack<String>();
+  }
+
+  @Test
+  @Parameters(method = "validateInput")
+  public void testValidateInput(String input, String expected) {
+
+    validator = new Validator(input);
+    String actual = validator.validateInput(null);
+
+    Assert.assertEquals(expected, actual);
   }
 
 
   @Test
-  public void testValidateInputZero() {
-   // String input = "11";
-   // String expected = "11";
-
+  @Parameters(method = "validateSet")
+  public void testValidateSet(String expect, Set<String> input) {
+    Set<String> expected = new HashSet<String>();;
+    expected.add(expect);
 
     validator = new Validator(input);
-    String actual = validator.validateInput("text");
+    Set<String> actual = validator.validateSet();;
 
     Assert.assertEquals(expected, actual);
   }
 /*
-  @Test
-  public void testValidateInputInt() {
-    //   logger.info("Start testValidateInputInt ");
-    Validator validator = new Validator("12321");
-    Assert.assertEquals(validator.validateInput("12321"), "12321");
-    //   logger.info("Stop testValidateInputInt ");
+ public void testFindPalindromes(String expect, String input) {
+    Set<String> expected = new TreeSet<>();
+    expected.add(expect);
+
+    Set<String> actual = palindrome.findPalindromes(input);
+
+    Assert.assertEquals(expected.toString(), actual.toString());
   }
 
-  @Test
-  public void testValidateInputString() {
-    Validator validator = new Validator("String");
-    Assert.assertEquals(validator.validateInput("String"), "0");
-  }
 
-  @Test
-  public void testValidateInputSpace() {
-    Validator validator = new Validator(" ");
-    Assert.assertEquals(validator.validateInput(" "), "0");
-  }
 
-  @Test
-  public void testValidateInputDoublePoint() {
-    Validator validator = new Validator("11.23");
-    Assert.assertEquals(validator.validateInput("11.23"), "11");
-  }
 
-  @Test
-  public void testValidateInputDoubleComma() {
-    Validator validator = new Validator("11,23");
-    Assert.assertEquals(validator.validateInput("11,23"), "0");
-  }
 
-  @Test
-  public void testValidateInputDoubleDash() {
-    Validator validator = new Validator("11-23");
-    Assert.assertEquals(validator.validateInput("11-23"), "0");
-  }
 
-  @Test
-  public void testValidateInputDoubleColon() {
-    Validator validator = new Validator("11:23");
-    Assert.assertEquals(validator.validateInput("11:23"), "0");
-  }
 
-  @Test
-  public void testValidateInputDoubleMinus() {
-    Validator validator = new Validator("-12332");
-    Assert.assertEquals(validator.validateInput("-12332"), "12332");
-  }
 
-  @Test
-  public void testValidateInputDoubleSlash() {
-    Validator validator = new Validator("123/32");
-    Assert.assertEquals(validator.validateInput("123/32"), "0");
-  }
 
   @Test
   public void testValidateSetInt() {
@@ -133,7 +127,6 @@ public class ValidatorTests {
     Validator validator = new Validator(setA);
     Assert.assertEquals(validator.getValidateSet().toString(), "[123321]");
   }
-
  */
 }
 
