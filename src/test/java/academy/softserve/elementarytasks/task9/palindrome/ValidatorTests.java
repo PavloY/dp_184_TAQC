@@ -9,27 +9,50 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 @RunWith(Parameterized.class)
 public class ValidatorTests {
 
-
-
-  Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
-
-  @Test
-  public void testValidateInputInt() {
-    logger.info("Start testValidateInputInt ");
-    Validator validator = new Validator("12321");
-    Assert.assertEquals(validator.validateInput("12321"), "12321");
-    logger.info("Stop testValidateInputInt ");
+  @Parameterized.Parameters(name = "expected:{0}, actual:{1}")
+  public static Collection<Object[]>data(){
+    return Arrays.asList(new Object[][] {
+      {"11","11"},
+      {"12321","12321"},
+    });
   }
+
+  Validator validator;
+ // Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
+  @Parameterized.Parameter(0)
+  public String expected;
+  @Parameterized.Parameter(1)
+  public String input;
+/*
+  public ValidatorTests(String input, String expected) {
+    this.input = input;
+    this.expected = expected;
+  }
+ */
 
   @Test
   public void testValidateInputZero() {
-    Validator validator = new Validator("0");
-    Assert.assertEquals(validator.validateInput("0"), "0");
+   // String input = "11";
+   // String expected = "11";
+
+
+    validator = new Validator(input);
+    String actual = validator.validateInput("text");
+
+    Assert.assertEquals(expected, actual);
+  }
+/*
+  @Test
+  public void testValidateInputInt() {
+    //   logger.info("Start testValidateInputInt ");
+    Validator validator = new Validator("12321");
+    Assert.assertEquals(validator.validateInput("12321"), "12321");
+    //   logger.info("Stop testValidateInputInt ");
   }
 
   @Test
@@ -110,6 +133,8 @@ public class ValidatorTests {
     Validator validator = new Validator(setA);
     Assert.assertEquals(validator.getValidateSet().toString(), "[123321]");
   }
+
+ */
 }
 
 
