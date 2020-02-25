@@ -1,67 +1,85 @@
 package academy.softserve.elementarytasks.task9.palindrome;
 
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import java.util.Set;
 import java.util.TreeSet;
 
+@RunWith(JUnitParamsRunner.class)
 public class PalindromeSequenceTests {
   PalindromeSequence palindrome;
+
+  public static Object[][] palindromeTrue(){
+    return new Object[][] {
+            {"12321"},
+            {"1234321"},
+            {"0"},
+            {""},
+            {"civic"}
+    };
+  }
+
+  public static Object[][] palindromeFalse(){
+    return new Object[][] {
+            {"123"},
+            {"321"},
+            {"help"},
+            {"-123"}
+    };
+  }
 
   @Before
   public void init (){
     palindrome = new PalindromeSequence();
   }
-
   @After
   public void tearDown(){
     palindrome = null;
   }
 
   @Test
-  public void testIsPalindromeInteger() {
-    Assert.assertTrue(palindrome.isPalindrome("123321"));
+  @Parameters(method = "palindromeTrue")
+  public void testIsPalindromeTrue(String input) {
+
+    boolean actual = palindrome.isPalindrome(input);
+
+    Assert.assertTrue(actual);
   }
 
   @Test
-  public void testIsPalindromeZero() {
-    Assert.assertTrue(palindrome.isPalindrome("0"));
+  @Parameters(method = "palindromeFalse")
+  public void testIsPalindromeFalse(String input) {
+
+    boolean actual = palindrome.isPalindrome(input);
+
+    Assert.assertFalse(actual);
   }
 
-  @Test
-  public void testIsPalindromeString() {
-    Assert.assertTrue(palindrome.isPalindrome("civic"));
-  }
+
 
   @Test
-  public void testIsPalindromeIntegerBad() {
-    Assert.assertFalse(palindrome.isPalindrome("12332"));
-  }
-
-  @Test
-  public void testIsPalindromeSpace() {
-    Assert.assertTrue(palindrome.isPalindrome(" "));
-  }
-
-  @Test
-  public void testIsPalindromeMinusBad() {
-    Assert.assertFalse(palindrome.isPalindrome("-11"));
-  }
-
-  @Test
-  public void testFindPalindromesOne() {
-    String input = "11";
+  @Parameters({
+        "11,11",
+        "12321, 12321"
+  })
+  public void testFindPalindromes(String expect, String input) {
     Set<String> expected = new TreeSet<>();
-    expected.add("11");
+    expected.add(expect);
 
     Set<String> actual = palindrome.findPalindromes(input);
 
     Assert.assertEquals(expected, actual);
   }
 
+
+
+/*
   @Test
   public void testFindPalindromesTwo() {
     Assert.assertEquals(palindrome.findPalindromes("12321").toString(), "[12321, 232]");
@@ -107,5 +125,7 @@ public class PalindromeSequenceTests {
     PalindromeSequence palindrome = new PalindromeSequence("22,9");
     Assert.assertEquals(palindrome.getPalindromes().toString(), "[22]");
   }
+
+ */
 
 }
