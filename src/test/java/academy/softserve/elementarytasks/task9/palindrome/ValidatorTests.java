@@ -24,16 +24,16 @@ public class ValidatorTests {
 
   Validator validator;
  // Logger logger = LoggerFactory.getLogger(ValidatorTests.class);
-  @Parameterized.Parameter(0)
+ // @Parameterized.Parameter(0)
   public String expected;
-  @Parameterized.Parameter(1)
+ // @Parameterized.Parameter(1)
   public String input;
-/*
+
   public ValidatorTests(String input, String expected) {
     this.input = input;
     this.expected = expected;
   }
- */
+
 
   @Test
   public void testValidateInputZero() {
