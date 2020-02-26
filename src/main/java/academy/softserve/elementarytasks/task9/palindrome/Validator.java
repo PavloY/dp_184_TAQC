@@ -33,7 +33,7 @@ public class Validator {
     return inputValidate;
   }
 
-  public Set<String> validateSet () {
+  private Set<String> validateSet () {
     if (setValidate.size() < 1) {
       setValidate.add("0");
     }
